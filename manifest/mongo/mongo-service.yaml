@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  labels:
+    app.kubernetes.io/name: mongo
+    app.kubernetes.io/component: backend
+spec:
+  ports:
+  - port: 2717
+    targetPort: 2717
+  selector:
+    app.kubernetes.io/name: mongo
+    app.kubernetes.io/component: backend
