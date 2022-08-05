@@ -23,16 +23,9 @@ spec:
         volumeMounts:
         - mountPath: /data/db
           name: mongo-pvc
-        args:
-          - --bind_ip
-          - 0.0.0.0
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
         ports:
         - containerPort: 27017
-        volumes:
-        - name: pvc-mongo
-          persistentVolumeClaim:
-            claimName: mongo-pvc
+      volumes:
+      - name: mongo-pvc
+        persistentVolumeClaim:
+          claimName: mongo-pvc
